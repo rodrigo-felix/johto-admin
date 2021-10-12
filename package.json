@@ -1,0 +1,28 @@
+{
+  "name": "johto-admin",
+  "version": "1.0.0",
+  "description": "Backend application from project Johto Admin",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rodrigo-felix/johto-admin.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rodrigo-felix/johto-admin/issues"
+  },
+  "homepage": "https://github.com/rodrigo-felix/johto-admin#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "mongoose": "^6.0.10",
+    "nodemon": "^2.0.13"
+  }
+}
