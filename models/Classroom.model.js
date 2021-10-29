@@ -6,12 +6,15 @@ const userSchema = new Schema(
             type: String,
             required: true,
         },
-        email: {
+        startdate: {
+            type: Date,
+            required: true,
+        },
+        teacher: {
             type: String,
             required: true,
-            unique: true,
         },
-        passwordHash: {
+        students: {
             type: String,
             required: true,
         },
@@ -20,4 +23,4 @@ const userSchema = new Schema(
         timestamps: true,
     });
 
-module.exports = model('User', userSchema);
+module.exports = model('Classroom', classroomSchema);
