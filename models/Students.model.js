@@ -1,6 +1,6 @@
 const {model, schema, Schema} = require('mongoose');
 
-const userSchema = new Schema(
+const studentSchema = new Schema(
     {
         name: {
             type: String,
@@ -20,7 +20,7 @@ const userSchema = new Schema(
             required: false,
         },
         grades: {
-            type: [Grades],
+            type: String,
         },
     },
     {
