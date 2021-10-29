@@ -9,15 +9,22 @@ const userSchema = new Schema(
         email: {
             type: String,
             required: true,
-            unique: true,
         },
-        passwordHash: {
-            type: String,
-            required: true,
+        address: {
+            street: String,
+            number: Number,
+            neiborhood: String
+        },
+        absences: {
+            type: Number,
+            required: false,
+        },
+        grades: {
+            type: [Grades],
         },
     },
     {
         timestamps: true,
     });
 
-module.exports = model('User', userSchema);
+module.exports = model('Students', studentSchema);

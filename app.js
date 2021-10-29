@@ -17,6 +17,9 @@ app.use(cors());
 
 //import_routes
 const authRoutes = require('./routes/auth.routes');
+const classroomRoutes = require('.routes/classroom.routes');
+const studentsRoutes = require('.routes/students.routes');
+
 
 //public routes
 app.use('/auth', authRoutes);
@@ -25,6 +28,7 @@ app.use('/auth', authRoutes);
 app.use(authMiddleware);
 
 //private routes
+
 
 app.listen(process.env.PORT, () => {
     console.log(`Server running on port:`, process.env.PORT);
