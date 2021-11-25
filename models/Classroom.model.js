@@ -2,7 +2,7 @@ const {model, schema, Schema} = require('mongoose');
 
 const classroomSchema = new Schema(
     {
-        name: {
+        title: {
             type: String,
             required: true,
         },
@@ -14,10 +14,10 @@ const classroomSchema = new Schema(
             type: String,
             required: true,
         },
-        students: {
+        students: [{
             type: String,
             required: true,
-        },
+        }],
     },
     {
         timestamps: true,

@@ -8,7 +8,7 @@ const router = Router();
 
 // get all students
 
-router.get('/students', async (req, res) => {
+router.get('/', async (req, res) => {
     try {
         const students = await Students.find();
         res.status(200).json(students);
@@ -19,7 +19,7 @@ router.get('/students', async (req, res) => {
 
 // get specifc student
 
-router.get('/students/:id', async (req, res) => {
+router.get('/:id', async (req, res) => {
     const { id } = req.params;
     try {
         const students = await Students.findById(id);
@@ -31,7 +31,7 @@ router.get('/students/:id', async (req, res) => {
 
 // post new students (PUSH in a CLASSROOM)
 
-router.post('/students', async (req, res) => {
+router.post('/', async (req, res) => {
     if (!req.body.title) {
       return res.status(400).json({ msg: 'missing title field' });
     }
@@ -45,7 +45,7 @@ router.post('/students', async (req, res) => {
 
 // edit specifc classroom
 
-router.put('/students/:id', async (req, res) => {
+router.put('/:id', async (req, res) => {
     const { id } = request.params;
     const payload = request.body;
     try {
@@ -58,7 +58,7 @@ router.put('/students/:id', async (req, res) => {
 
 // delete specific classroom
 
-router.delete('/students/:id', async (req, res) => {
+router.delete('/:id', async (req, res) => {
     const { id } = req.params;
     try {
       await Classroom.findByIdAndDelete(id);

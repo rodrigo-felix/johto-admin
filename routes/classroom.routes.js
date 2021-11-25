@@ -8,7 +8,7 @@ const router = Router();
 
 // get all classroom
 
-router.get('/classroom', async (req, res) => {
+router.get('/', async (req, res) => {
     try {
         const classroom = await Classroom.find();
         res.status(200).json(classroom);
@@ -19,7 +19,7 @@ router.get('/classroom', async (req, res) => {
 
 // get specifc classroom
 
-router.get('/classroom/:id', async (req, res) => {
+router.get('/:id', async (req, res) => {
     const { id } = req.params;
     try {
         const classroom = await Classroom.findById(id);
@@ -31,13 +31,13 @@ router.get('/classroom/:id', async (req, res) => {
 
 // post new classroom (PUSH in a CLASSROOM)
 
-router.post('/classroom', async (req, res) => {
+router.post('/', async (req, res) => {
     if (!req.body.title) {
       return res.status(400).json({ msg: 'missing title field' });
     }
     try {
       const newClassroom = await Classroom.create(req.body);
-      return res.status(201).json(Classroom);
+      return res.status(201).json(newClassroom);
     } catch (error) {
       return res.status(500).json({ msg: 'ServerError', error });
     }
@@ -45,20 +45,20 @@ router.post('/classroom', async (req, res) => {
 
 // edit specifc classroom
 
-router.put('/classroom/:id', async (req, res) => {
-    const { id } = request.params;
-    const payload = request.body;
+router.put('/:id', async (req, res) => {
+    const { id } = req.params;
+    const payload = req.body;
     try {
       const updatedClassroom = await Classroom.findOneAndUpdate({ _id: id }, payload, { new: true });
-      response.status(200).json(updatedClassroom);
+      res.status(200).json(updatedClassroom);
     } catch (error) {
-      response.status(500).json({ msg: 'Error while updating joke', error });
+      res.status(500).json({ msg: 'Error while updating joke', error });
     }
   });
 
 // delete specific classroom
 
-router.delete('/classroom/:id', async (req, res) => {
+router.delete('/:id', async (req, res) => {
     const { id } = req.params;
     try {
       await Classroom.findByIdAndDelete(id);
